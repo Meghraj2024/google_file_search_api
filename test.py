@@ -1,7 +1,11 @@
 from google import genai
 import os
+from dotenv import load_dotenv
 
-client = genai.Client(api_key="AIzaSyAobFk-TqgMEQ7Lz4wjYfu6R4oXcPImZh4")
+
+load_dotenv()
+
+client = genai.Client(api_key=os.getenv('GOOGLE_AI_API_KEY'))
 
 files = client.files.list()
 
